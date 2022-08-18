@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 100;
+}
+.navbar *{
+    transition: all .3s;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-nav{
+    gap: 40px;
+    font-size: 1rem;
+}
+
+.nav-link{
+    transition: all .6s;
+}
+
+.bunner{
+    width: 100%;
+    height: 100vh;
+    padding: 70px;
+    transition: all .6s .3s cubic-bezier(1, 0, 0, 1);
+}
+.bunner:hover{
+    padding: 10px;
+}
+
+.bunner > .bg{
+    width: 100%;
+    height: 100%;
+    background-image: url("https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+}
+
+@media (max-width: 767px) {
+    .bunner{
+        padding: 10px;
+    }
+    .bunner > .bg{
+        background-attachment: unset;
+    }
+}
+
+.bunner > .btn-bunner-todown{
+    position: absolute;
+    bottom: 100px;
+    left: calc(50% - 10px);
+    color: #FFF;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 100%;
+    display: flex;
+}
+.bunner > .btn-bunner-todown > .icon{
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    animation: animatedBtnBunnerTodown .6s .3s ease-out infinite alternate-reverse;
+}
+
+@keyframes animatedBtnBunnerTodown {
+    0%{
+        transform: translateY(-12px) rotate(45deg);
+    }
+    100%{
+        transform: translateY(0) rotate(45deg);
+    }
+}
+
+.gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 10px 10px 10px;
+}
+
+.content-gallery {
+    flex: 1 1 24%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content-gallery .item {
+    min-width: 300px;
+    max-width: 100%;
+    cursor: pointer;
+    transition: all 1s;
+    filter: grayscale(100%);
+}
+.content-gallery .item:is(:hover, .active) {
+    filter: none;
+}
+
+footer{
+    padding: 50px 0;
+    text-align: center;
+}
